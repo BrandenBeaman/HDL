@@ -24,10 +24,6 @@ signal bv: std_logic_vector(1 downto 0);
 signal cinv: std_logic_vector(1 downto 0);
 
 begin
-  av <= "0" & a;
-  bv <= "0" & b;
-  cinv <= "0" & cin;
-  x  <= std_logic_vector (unsigned(av) + unsigned(bv) + unsigned(cinv));
-  sum  <= x(0);
-  cout <= x(1);
+sum  <= (a xor b) xor cin;
+cout <= (a and b) or (b and cin) (cin and a);
 end arc; 
