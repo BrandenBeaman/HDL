@@ -1,4 +1,4 @@
-# Dr. Kaputa
+# Branden Beaman
 # Quartus II compile script for DE1-SoC board
 
 # 1] name your project here
@@ -16,8 +16,9 @@ set_global_assignment -name TOP_LEVEL_ENTITY generic_adder_arch
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../output_files
 
 # 2] include your relative path files here
-set_global_assignment -name VHDL FILE ../../src/full_adder_single_bit_arch/src/full_adder_single_bit_arch.vhd
 set_global_assignment -name VHDL_FILE ../../src/generic_adder_arch.vhd
+set_global_assignment -name VHDL_FILE ../../src/full_adder_single_bit_arch/src/full_adder_single_bit_arch.vhd 
+
 
 execute_flow -compile
 project_close
