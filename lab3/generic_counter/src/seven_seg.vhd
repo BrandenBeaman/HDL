@@ -23,7 +23,7 @@ process(reset,bcd)
    begin
    
    if (reset = '1') then
-     seven_seg_out <= "11111111";
+     seven_seg_out <= "1111111";
   
    else 
      case bcd is
