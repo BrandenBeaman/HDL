@@ -64,7 +64,7 @@ counter: generic_counter
   port map(
     clk       => clk_50mhz,
     reset     => reset,
-    output    => enable;
+    output    => enable
   );
   
  
@@ -86,7 +86,7 @@ counter: generic_counter
     if reset = '1' then
       reg_out <= (others => '0');
     elsif rising_edge(clk_50mhz) then
-      if enable_sig = '1' then
+      if enable = '1' then
         reg_out <= sum_sig;
       end if;
     end if;
