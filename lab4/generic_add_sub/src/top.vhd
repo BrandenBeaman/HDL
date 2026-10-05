@@ -1,5 +1,5 @@
 --Branden Beaman
--- counter top
+-- generic_add_sub top
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -30,7 +30,8 @@ component generic_add_sub is
   port (
     a       : in  std_logic_vector(bits-2 downto 0);
     b       : in  std_logic_vector(bits-2 downto 0);
-    cin     : in  std_logic;
+    add_en  : in std_logic;
+	sub_en  : in std_logic;
     sum     : out std_logic_vector(bits-2 downto 0);
     cout    : out std_logic
   );
@@ -56,7 +57,7 @@ component seven_seg is
 
 end component;
 
-component edge_detector is
+component rising_edge_synchronizer is
  port (
     clk               : in std_logic;
     reset             : in std_logic;
@@ -71,55 +72,86 @@ signal a_sync  : std_logic_vector(bits-2 downto 0);
 signal b_sync  : std_logic_vector(bits-2 downto 0);
 
 signal add_en  : std_logic;
-signal sub_en : std_logic;
+signal sub_en  : std_logic;
 
-signal 
+
+signal a_4bit       : std_logic_vector(3 downto 0);
+signal b_4bit       : std_logic_vector(3 downto 0);
+signal result_4bit  : std_logic_vector(3 downto 0);
 
 begin
 
- 
-counter: generic_counter  
-  generic map (
-    max_count => 50000000
-  )
+-- a and b silder input to syncs
+u_a_synchronizer: synchronizer_3bit
   port map(
     clk       => clk_50mhz,
-    reset     => reset,
-    output    => enable
+    reset     => reset,       
+    async_in  => a,  
+    sync_out  => a_sync
+);
+
+u_B_synchronizer: synchronizer_3bit
+  port map(
+    clk       => clk_50mhz,
+    reset     => reset,       
+    async_in  => b,  
+    sync_out  => b_sync
+);	
+
+-- add and sub button inputs to rising_edge_synchronizer
+u_add_rising_edge_sync: rising_edge_synchronizer
+     port map (
+	clk     => clk_50mhz,             
+    reset   => reset,          
+    input   => add_btn,          
+    edge    => add_en         
+	 );
+	 
+ u_sub_rising_edge_synchronizer: rising_edge_synchronizer
+     port map (
+	clk     => clk_50mhz,             
+    reset   => reset,          
+    input   => sub_btn,          
+    edge    => sub_en          
+	 );
+
+-- a_sync, b_sync, add_en, sub_en, to generic_add_sub to result_ 4bit 
+u_generic_add_sub: generic_add_sub
+   generic (
+    bits    : integer := 3
+  );
+  port (
+    a      => a_sync,
+    b      => b_sync,
+    add_en => add_en, 
+	sub_en => sub_en,
+    sum    => result_4bit,
+    cout   => open
   );
   
- 
-  adder: generic_adder_beh
-    generic map (
-      bits => 4
-    )
-    port map (
-      a    => "0001",       -- Constant +1
-      b    => reg_out,      -- Feedback from register
-      cin  => '0',
-      sum  => sum_sig,
-      cout => open
-    );
+u_a_seven_seg: seven_seg
+   port map( 
+    clk           => clk_50mhz,
+    reset         => reset,
+    bcd           => a_4bit,
+    seven_seg_out => a_bcd
+);
 
-  -- 5. Sum Register Process (Clocked on 50MHz edge, enabled by enable_sig)
-  sum_register: process(clk_50mhz, reset)
-  begin
-    if reset = '1' then
-      reg_out <= (others => '0');
-    elsif rising_edge(clk_50mhz) then
-      if enable = '1' then
-        reg_out <= sum_sig;
-      end if;
-    end if;
-  end process;
+u_b_seven_seg: seven_seg
+   port map( 
+    clk           => clk_50mhz,
+    reset         => reset,
+    bcd           => b_4bit,
+    seven_seg_out => b_bcd
+);
 
-  -- 6. Seven Segment Display Instance
-  seg: seven_seg
-    port map (
-      clk           => clk_50mhz,
-      reset         => reset,
-      bcd           => reg_out,
-      seven_seg_out => seven_seg_out
-    );
+u_result_seven_seg: seven_seg
+   port map( 
+    clk           => clk_50mhz,
+    reset         => reset,
+    bcd           => result_4bit,
+    seven_seg_out => result_bcd
+);
 
+  
 end beh;

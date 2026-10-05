@@ -1,25 +1,26 @@
 -------------------------------------------------------------------------------
--- Dr. Kaputa
--- generic adder [behavioral]
+-- Branden Beaman
+-- generic adder and subtractor [behavioral]
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity generic_adder_beh is
+entity generic_add_sub is
   generic (
     bits    : integer := 3
   );
   port (
     a       : in  std_logic_vector(bits-2 downto 0);
     b       : in  std_logic_vector(bits-2 downto 0);
-    cin     : in  std_logic;
+	add_en  : in std_logic;
+	sub_en  : in std_logic;
     sum     : out std_logic_vector(bits-2 downto 0);
     cout    : out std_logic
   );
-end entity generic_adder_beh;
+end entity generic_add_sub;
 
-architecture beh of generic_adder_beh is
+architecture beh of generic_add_sub is
 
 signal sum_temp   : std_logic_vector(bits downto 0);
 signal cin_guard  : std_logic_vector(bits-1 downto 0) := (others => '0');
