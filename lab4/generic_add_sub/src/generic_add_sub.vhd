@@ -32,7 +32,7 @@ operation_selection: process(add_en, sub_en, a, b)
    -- Addition
     if(add_en = '1') then
      math_temp <= std_logic_vector(unsigned('0' & a) + unsigned('0' & b));
-	 sum       <= math_temp(bits-2 downto 0); -- pull out lower 3 bits
+	 sum       <= math_temp(bits-2 downto 0); 
 	 cout      <= math_temp(bits-1);
     
    -- subtraction	

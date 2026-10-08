@@ -5,6 +5,7 @@
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity generic_add_sub_tb is
 end generic_add_sub_tb;
@@ -58,8 +59,9 @@ async_reset: process
 end process; 
 
 -- Stimulus process
-stimuli: process
+stimuli_btn: process
    begin
+   sub_sig <= '0';
      add_sig <='1';
 	 wait for 1400 ns;
 	 add_sig <= '0';
@@ -67,6 +69,24 @@ stimuli: process
 	 sub_sig <='1';
 	 wait for 1400 ns;
 	 sub_sig <='0';
+end process;
+
+stimuli_ab: process
+begin
+
+  while true loop
+ 
+    for i in 0 to 7 loop
+      a_in <= std_logic_vector(to_unsigned(i, 3));
+      
+  
+      for j in 0 to 7 loop
+        b_in <= std_logic_vector(to_unsigned(j, 3));
+        wait for 20 ns; 
+      end loop;
+      
+    end loop;
+  end loop;
 end process;
 
 uut1: top  

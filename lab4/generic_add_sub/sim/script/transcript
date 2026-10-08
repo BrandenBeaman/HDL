@@ -13,7 +13,7 @@
 # //
 # do sim.do
 # Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
-# Start time: 16:48:19 on Oct 08,2026
+# Start time: 17:25:19 on Oct 08,2026
 # vcom -reportprogress 300 -93 -work work ../../src/generic_add_sub.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -21,20 +21,20 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity generic_add_sub
 # -- Compiling architecture beh of generic_add_sub
-# End time: 16:48:19 on Oct 08,2026, Elapsed time: 0:00:00
+# End time: 17:25:19 on Oct 08,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
-# Start time: 16:48:19 on Oct 08,2026
+# Start time: 17:25:19 on Oct 08,2026
 # vcom -reportprogress 300 -93 -work work ../../src/rising_edge_synchronizer.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity rising_edge_synchronizer
 # -- Compiling architecture beh of rising_edge_synchronizer
-# End time: 16:48:19 on Oct 08,2026, Elapsed time: 0:00:00
+# End time: 17:25:19 on Oct 08,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
-# Start time: 16:48:19 on Oct 08,2026
+# Start time: 17:25:19 on Oct 08,2026
 # vcom -reportprogress 300 -93 -work work ../../src/seven_seg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -42,50 +42,51 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity seven_seg
 # -- Compiling architecture arch of seven_seg
-# End time: 16:48:19 on Oct 08,2026, Elapsed time: 0:00:00
+# End time: 17:25:20 on Oct 08,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
-# Start time: 16:48:19 on Oct 08,2026
+# Start time: 17:25:20 on Oct 08,2026
 # vcom -reportprogress 300 -93 -work work ../../src/synchronizer_3bit.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity synchronizer_3bit
 # -- Compiling architecture beh of synchronizer_3bit
-# End time: 16:48:19 on Oct 08,2026, Elapsed time: 0:00:00
+# End time: 17:25:20 on Oct 08,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
-# Start time: 16:48:20 on Oct 08,2026
+# Start time: 17:25:20 on Oct 08,2026
 # vcom -reportprogress 300 -93 -work work ../../src/top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity top
 # -- Compiling architecture beh of top
-# End time: 16:48:20 on Oct 08,2026, Elapsed time: 0:00:00
+# End time: 17:25:20 on Oct 08,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
-# Start time: 16:48:20 on Oct 08,2026
+# Start time: 17:25:20 on Oct 08,2026
 # vcom -reportprogress 300 -93 -work work ../src/generic_add_sub_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
 # -- Compiling entity generic_add_sub_tb
 # -- Compiling architecture arch of generic_add_sub_tb
-# ** Warning: ../src/generic_add_sub_tb.vhd(34): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# End time: 16:48:20 on Oct 08,2026, Elapsed time: 0:00:00
+# ** Warning: ../src/generic_add_sub_tb.vhd(35): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 17:25:20 on Oct 08,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # vsim -voptargs="+acc" generic_add_sub_tb 
-# Start time: 16:48:20 on Oct 08,2026
+# Start time: 17:25:20 on Oct 08,2026
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
 # Loading work.generic_add_sub_tb(arch)#1
 # Loading work.top(beh)#1
 # Loading work.synchronizer_3bit(beh)#1
 # Loading work.rising_edge_synchronizer(beh)#1
-# Loading ieee.numeric_std(body)
 # Loading work.generic_add_sub(beh)#1
 # Loading work.seven_seg(arch)#1
 # GetModuleFileName: The specified module could not be found.
