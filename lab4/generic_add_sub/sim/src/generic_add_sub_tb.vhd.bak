@@ -60,12 +60,12 @@ end process;
 -- Stimulus process
 stimuli: process
    begin
-     add_sig <='1';
-	 wait for 1400 ns;
+     add _sig <='1';
+	 wait 1400 ns;
 	 add_sig <= '0';
 	 
 	 sub_sig <='1';
-	 wait for 1400 ns;
+	 wait 1400 ns;
 	 sub_sig <='0';
 end process;
 
