@@ -1,4 +1,4 @@
-# Dr. Kaputa
+# Branden Beaman
 # Quartus II compile script for DE1-SoC board
 
 # 1] name your project here
@@ -12,7 +12,7 @@ load_package flow
 project_new $project_name
 set_global_assignment -name FAMILY Cyclone
 set_global_assignment -name DEVICE 5CSEMA5F31C6 
-set_global_assignment -name TOP_LEVEL_ENTITY generic_add_sub
+set_global_assignment -name TOP_LEVEL_ENTITY top
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../output_files
 
 # 2] include your relative path files here
@@ -21,10 +21,10 @@ set_global_assignment -name VHDL_FILE ../../src/top.vhd
 set_global_assignment -name VHDL_FILE ../../src/seven_seg.vhd
 set_global_assignment -name VHDL_FILE ../../src/generic_add_sub.vhd
 set_global_assignment -name VHDL_FILE ../../src/synchronizer_3bit.vhd
-set_global_assignment -name VHDL_FILE ../../src/add_sub.vhd
+
 
 set_location_assignment PIN_AB12 -to reset
-set_location_assignment PIN_AF14 -to clk
+set_location_assignment PIN_AF14 -to clk_50mhz
 set_location_assignment PIN_AC9  -to a[0]
 set_location_assignment PIN_AD10 -to a[1]
 set_location_assignment PIN_AE12 -to a[2]

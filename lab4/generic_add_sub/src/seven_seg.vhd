@@ -37,6 +37,12 @@ process(reset,bcd)
 		when "0111" => seven_seg_out <= "1111000"; --7
 		when "1000" => seven_seg_out <= "0000000"; --8
 		when "1001" => seven_seg_out <= "0011000"; --9
+		when "1010" => seven_seg_out <= "0001000"; -- A (10)
+        when "1011" => seven_seg_out <= "0000011"; -- b (11)
+        when "1100" => seven_seg_out <= "1000110"; -- C (12)
+        when "1101" => seven_seg_out <= "0100001"; -- d (13)
+        when "1110" => seven_seg_out <= "0000110"; -- E (14)
+        when "1111" => seven_seg_out <= "0001110"; -- F (15
 		when others => seven_seg_out <= "1111111"; -- everything else
 	 end case;
     end if;

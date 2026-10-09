@@ -28,6 +28,8 @@ component generic_add_sub is
     bits    : integer := 4
   );
   port (
+    clk     : in std_logic;
+	reset   : in std_logic;
     a       : in  std_logic_vector(bits-2 downto 0);
     b       : in  std_logic_vector(bits-2 downto 0);
     add_en  : in std_logic;
@@ -74,6 +76,7 @@ signal add_en  : std_logic;
 signal sub_en  : std_logic;
 
 signal result_sig :std_logic_vector(2 downto 0);
+signal result_cout : std_logic;
 
 
 signal a_4bit       : std_logic_vector(3 downto 0);
@@ -84,7 +87,7 @@ begin
 
 a_4bit <= '0' & a_sync;
 b_4bit <= '0' & b_sync;
-result_4bit <= '0' & result_sig;
+result_4bit <= result_cout & result_sig;
 
 -- a and b silder input to syncs
 u_a_synchronizer: synchronizer_3bit
@@ -126,12 +129,14 @@ u_generic_add_sub: generic_add_sub
     bits  => 4
   )
   port map(
+    clk   => clk_50mhz,
+    reset => reset,
     a      => a_sync,
     b      => b_sync,
     add_en => add_en, 
 	sub_en => sub_en,
     sum    => result_sig,
-    cout   => open
+    cout   => result_cout
   );
   
 u_a_seven_seg: seven_seg
