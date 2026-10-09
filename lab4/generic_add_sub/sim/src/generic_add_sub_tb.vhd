@@ -60,15 +60,15 @@ end process;
 
 -- Stimulus process
 stimuli_btn: process
-   begin
-   sub_sig <= '0';
-     add_sig <='1';
-	 wait for 1400 ns;
-	 add_sig <= '0';
-	 
-	 sub_sig <='1';
-	 wait for 1400 ns;
-	 sub_sig <='0';
+begin
+    sub_sig <= '0';
+    add_sig <= '1';
+    wait for 1400 ns;
+    add_sig <= '0';
+
+    sub_sig <= '1';
+    wait for 1400 ns;
+    sub_sig <= '0';
 end process;
 
 stimuli_ab: process
