@@ -39,7 +39,7 @@ rising_edge_detector: process(reset,clk,input_zz)
       input_zzz   <= '1';
     elsif rising_edge(clk) then
       input_zzz   <= input_zz;
-      edge <= (input_zz xor input_zzz) and not input_zz;
+      edge <= (input_zz xor input_zzz) and input_zz;
     end if;
 end process;  
 end beh; 
