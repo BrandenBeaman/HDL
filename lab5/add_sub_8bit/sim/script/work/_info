@@ -1,0 +1,340 @@
+m255
+K4
+z2
+!s11e vcom 2019.2 2019.04, Apr 17 2019
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/bpb7174/repos/HDL/lab5/add_sub_8bit/sim/script
+T_opt
+Z1 !s110 1792705666
+V9Gdoge[Ya`YSeZ;bEEkbL3
+04 15 4 work add_sub_8bit_tb arch 1
+=1-b07b2521b033-6ada8482-1cd-81c
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;2019.2;69
+Eadd_sub_8bit
+Z2 w1792703467
+Z3 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+R0
+Z6 8../../src/add_sub_8bit.vhd
+Z7 F../../src/add_sub_8bit.vhd
+l0
+L9
+V^77aW97E9Ui18aV1_8<Q01
+!s100 MLfJZkn76UZP@nDOnL]m_0
+Z8 OL;C;2019.2;69
+31
+Z9 !s110 1792705665
+!i10b 1
+Z10 !s108 1792705665.000000
+Z11 !s90 -reportprogress|300|-93|-work|work|../../src/add_sub_8bit.vhd|
+Z12 !s107 ../../src/add_sub_8bit.vhd|
+!i113 0
+Z13 o-93 -work work
+Z14 tExplicit 1 CvgOpt 0
+Abeh
+R3
+R4
+R5
+DEx4 work 12 add_sub_8bit 0 22 ^77aW97E9Ui18aV1_8<Q01
+l30
+L23
+V;GOO4724oGAiJI[S8Wa2[1
+!s100 2z=fbaf0dO`:[]UH^o?KC2
+R8
+31
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Eadd_sub_8bit_tb
+Z15 w1792705638
+R3
+R4
+R5
+R0
+Z16 8../src/add_sub_8bit_tb.vhd
+Z17 F../src/add_sub_8bit_tb.vhd
+l0
+L10
+VgzbAnTYomSLz=imP6j5ae0
+!s100 `DT1_:g00T2Ki?E17f5MO2
+R8
+31
+R1
+!i10b 1
+Z18 !s108 1792705666.000000
+Z19 !s90 -reportprogress|300|-93|-work|work|../src/add_sub_8bit_tb.vhd|
+Z20 !s107 ../src/add_sub_8bit_tb.vhd|
+!i113 0
+R13
+R14
+Aarch
+R3
+R4
+R5
+DEx4 work 15 add_sub_8bit_tb 0 22 gzbAnTYomSLz=imP6j5ae0
+l54
+L13
+VmWh<MZ6b:Yh6ziUHUOnSD3
+!s100 6<kVI>C06QPfKTBFG@cC62
+R8
+31
+R1
+!i10b 1
+R18
+R19
+R20
+!i113 0
+R13
+R14
+Edouble_dabble
+Z21 w1792698977
+R3
+R4
+R5
+R0
+Z22 8../../src/double_dabble.vhd
+Z23 F../../src/double_dabble.vhd
+l0
+L9
+VZQ>ZfZlUalRGdI<^UcEen3
+!s100 fYE0ffTbzliU;COi;9eiG3
+R8
+31
+R1
+!i10b 1
+R10
+Z24 !s90 -reportprogress|300|-93|-work|work|../../src/double_dabble.vhd|
+Z25 !s107 ../../src/double_dabble.vhd|
+!i113 0
+R13
+R14
+Abeh
+R3
+R4
+R5
+DEx4 work 13 double_dabble 0 22 ZQ>ZfZlUalRGdI<^UcEen3
+l20
+L18
+VJ7SbHZ8=36<D6=M1^FW?m2
+!s100 UUUSNkM1ZY[_TCgc7macG3
+R8
+31
+R1
+!i10b 1
+R10
+R24
+R25
+!i113 0
+R13
+R14
+Erising_edge_synchronizer
+R21
+R4
+R5
+R0
+Z26 8../../src/rising_edge_synchronizer.vhd
+Z27 F../../src/rising_edge_synchronizer.vhd
+l0
+L8
+V7^gf[0AcMz;oFDKIj=b3N3
+!s100 8>=9Tc6dAVdENebjXiG<30
+R8
+31
+R9
+!i10b 1
+R10
+Z28 !s90 -reportprogress|300|-93|-work|work|../../src/rising_edge_synchronizer.vhd|
+Z29 !s107 ../../src/rising_edge_synchronizer.vhd|
+!i113 0
+R13
+R14
+Abeh
+R4
+R5
+DEx4 work 24 rising_edge_synchronizer 0 22 7^gf[0AcMz;oFDKIj=b3N3
+l23
+L17
+V3[Zc:cd7cKK`Uk6V^JOA[0
+!s100 @e1I9@Enc4[;L5b`c?VdR2
+R8
+31
+R9
+!i10b 1
+R10
+R28
+R29
+!i113 0
+R13
+R14
+Eseven_seg
+R21
+R3
+R4
+R5
+R0
+Z30 8../../src/seven_seg.vhd
+Z31 F../../src/seven_seg.vhd
+l0
+L8
+Vg__l[:D==V480WNUC5JX:1
+!s100 _@Y6ASl`@I_nkBSMXf`fX3
+R8
+31
+R1
+!i10b 1
+R18
+Z32 !s90 -reportprogress|300|-93|-work|work|../../src/seven_seg.vhd|
+Z33 !s107 ../../src/seven_seg.vhd|
+!i113 0
+R13
+R14
+Aarch
+R3
+R4
+R5
+DEx4 work 9 seven_seg 0 22 g__l[:D==V480WNUC5JX:1
+l21
+L19
+VVoVk6<WQe;J]0@<E6oJ8j2
+!s100 _Gj0^BN^?PcZFCG9_4P_:2
+R8
+31
+R1
+!i10b 1
+R18
+R32
+R33
+!i113 0
+R13
+R14
+Estate_machine
+Z34 w1792700577
+R4
+R5
+R0
+Z35 8../../src/state_machine.vhd
+Z36 F../../src/state_machine.vhd
+l0
+L8
+V>en6HBn[SSiOZdd@G_NnX1
+!s100 <3m;=2[PKaUb5^PMYT@T43
+R8
+31
+R9
+!i10b 1
+R10
+Z37 !s90 -reportprogress|300|-93|-work|work|../../src/state_machine.vhd|
+Z38 !s107 ../../src/state_machine.vhd|
+!i113 0
+R13
+R14
+Abeh
+R4
+R5
+DEx4 work 13 state_machine 0 22 >en6HBn[SSiOZdd@G_NnX1
+l27
+L17
+VW?TgMbHkQXzF2c8`UVQVA3
+!s100 6]4j:2BWX`T[b;MCDDVMM3
+R8
+31
+R9
+!i10b 1
+R10
+R37
+R38
+!i113 0
+R13
+R14
+Esynchronizer_8bit
+Z39 w1792702040
+R4
+R5
+R0
+Z40 8../../src/synchronizer_8bit.vhd
+Z41 F../../src/synchronizer_8bit.vhd
+l0
+L8
+VA`HGl2dNl`n<6;?jOJNzX2
+!s100 zZRVMI]h6H]::gW@^YTf32
+R8
+31
+R9
+!i10b 1
+R10
+Z42 !s90 -reportprogress|300|-93|-work|work|../../src/synchronizer_8bit.vhd|
+Z43 !s107 ../../src/synchronizer_8bit.vhd|
+!i113 0
+R13
+R14
+Abeh
+R4
+R5
+DEx4 work 17 synchronizer_8bit 0 22 A`HGl2dNl`n<6;?jOJNzX2
+l22
+L17
+VDM1lQ[B6KO[]hXP4_JCDd3
+!s100 o:34Vl6L^OObQ8Mi4e;3e1
+R8
+31
+R9
+!i10b 1
+R10
+R42
+R43
+!i113 0
+R13
+R14
+Etop
+Z44 w1792705103
+R4
+R5
+R0
+Z45 8../../src/top.vhd
+Z46 F../../src/top.vhd
+l0
+L7
+V>IYQ1UJccP1Nmc>zmg]CM1
+!s100 TgV0f]^VmgXX_dV2LFH^>1
+R8
+31
+R1
+!i10b 1
+R18
+Z47 !s90 -reportprogress|300|-93|-work|work|../../src/top.vhd|
+Z48 !s107 ../../src/top.vhd|
+!i113 0
+R13
+R14
+Abeh
+R4
+R5
+DEx4 work 3 top 0 22 >IYQ1UJccP1Nmc>zmg]CM1
+l114
+L29
+VoZW>7d;91Vg11jH:il@130
+!s100 @=UT=2]W4lggz8amWP8?A2
+R8
+31
+R1
+!i10b 1
+R18
+R47
+R48
+!i113 0
+R13
+R14

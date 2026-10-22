@@ -32,8 +32,8 @@ component synchronizer_8bit is
   port(
     clk               : in std_logic;
     reset             : in std_logic;
-    async_in          : in std_logic_vector(2 downto 0);
-    sync_out          : out std_logic_vector(2 downto 0)
+    async_in          : in std_logic_vector(7 downto 0);
+    sync_out          : out std_logic_vector(7 downto 0)
   );
 end component;
 
@@ -98,7 +98,7 @@ signal sum     : std_logic_vector(8 downto 0);
 signal diff     : std_logic_vector(8 downto 0);
 
 signal a_12bit  : std_logic_vector(11 downto 0);
-signal a_12bit  : std_logic_vector(11 downto 0);
+signal b_12bit  : std_logic_vector(11 downto 0);
 
 signal sum_12bit   : std_logic_vector(11 downto 0);
 signal diff_12bit  : std_logic_vector(11 downto 0);
@@ -124,7 +124,7 @@ diff_12bit <= "000" & diff;
 u_a_synchronizer_8bit: synchronizer_8bit
    port map (
       clk => clk_50mhz,
-	  reset = > reset,
+	  reset => reset,
 	  async_in => a,
 	  sync_out => a_sync
 	);
@@ -132,7 +132,7 @@ u_a_synchronizer_8bit: synchronizer_8bit
 u_b_synchronizer_8bit: synchronizer_8bit
    port map (
       clk => clk_50mhz,
-	  reset = > reset,
+	  reset => reset,
 	  async_in => b,
 	  sync_out => b_sync
 	);
