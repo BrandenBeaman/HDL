@@ -7,7 +7,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity generic_add_sub_8bit_tb is
+entity add_sub_8bit_tb is
 end add_sub_8bit_tb;
 
 architecture arch of add_sub_8bit_tb is
@@ -23,6 +23,7 @@ port (
 	  led_b         : out std_logic;
 	  led_add       : out std_logic;
 	  led_sub       : out std_logic;
+	   selo  : out std_logic_vector(1 downto 0)
 	 );
 	 
 end component;
@@ -73,14 +74,14 @@ uut1: top
   port map(
     clk_50mhz  => clk,
     reset      => reset,
-
 	
-	btn => btn_sig
+	btn => btn_sig,
 	
     led_a      => open,
     led_b      => open,
     led_add    => open,
     led_sub    => open,
+	selo  => open
 	
   );
 

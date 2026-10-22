@@ -51,10 +51,15 @@ begin
       if (btn = '1') then  
         state_next <= sDisp_sum;
       end if;
+	
+	when sDisp_sum =>
+	  if (btn = '1') then
+	    state_next <= sDisp_diff;
+	  end if;
 	  
     when sDisp_diff =>
       if (btn = '1') then  
-        state_next <= sDisp_diff;
+        state_next <= sInput_a;
       end if;
 
     when others =>

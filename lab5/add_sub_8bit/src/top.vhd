@@ -14,7 +14,9 @@ entity top is
 	  led_a         : out std_logic;
 	  led_b         : out std_logic;
 	  led_add       : out std_logic;
-	  led_sub       : out std_logic
+	  led_sub       : out std_logic;
+	  
+	  selo  : out std_logic_vector(1 downto 0)
 	  
 	 );
 end top;
@@ -68,24 +70,35 @@ process(sel)
 	 led_b   <= '0';
 	 led_add <= '0';
 	 led_sub <= '0';
+	 selo <= sel;
 
      when "01" => 
 	 led_a   <= '0';
 	 led_b   <= '1';
 	 led_add <= '0';
 	 led_sub <= '0';
+	 selo <= sel;
 
      when "10" => 
 	 led_a   <= '0';
 	 led_b   <= '0';
 	 led_add <= '1';
 	 led_sub <= '0';
+	 selo <= sel;
 
      when "11" => 
 	 led_a   <= '0';
 	 led_b   <= '0';
 	 led_add <= '0';
 	 led_sub <= '1';
+	 selo <= sel;
+	 
+	 when others =>
+	 led_a   <= '0';
+	 led_b   <= '0';
+	 led_add <= '0';
+	 led_sub <= '0';
+	 selo <= sel;
   end case;
 end process;
 

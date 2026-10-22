@@ -13,13 +13,14 @@ radix define States {
  -default default
 }
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /generic_add_sub_tb/uut1/clk_50mhz
-add wave -noupdate /generic_add_sub_tb/uut1/reset
-add wave -noupdate /generic_add_sub_tb/uut1/btn
-add wave -noupdate /generic_add_sub_tb/uut1/led_a
-add wave -noupdate /generic_add_sub_tb/uut1/led_b
-add wave -noupdate /generic_add_sub_tb/uut1/led_add
-add wave -noupdate /generic_add_sub_tb/uut1/led_sub
+add wave -noupdate /add_sub_8bit_tb/uut1/clk_50mhz
+add wave -noupdate /add_sub_8bit_tb/uut1/reset
+add wave -noupdate /add_sub_8bit_tb/uut1/btn
+add wave -noupdate /add_sub_8bit_tb/uut1/led_a
+add wave -noupdate /add_sub_8bit_tb/uut1/led_b
+add wave -noupdate /add_sub_8bit_tb/uut1/led_add
+add wave -noupdate /add_sub_8bit_tb/uut1/led_sub
+add wave -noupdate /add_sub_8bit_tb/uut1/selo
 
 
 TreeUpdate [SetDefaultTree]
