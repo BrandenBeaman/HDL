@@ -22,7 +22,9 @@ add wave -noupdate /add_sub_8bit_tb/uut1/led_a
 add wave -noupdate /add_sub_8bit_tb/uut1/led_b
 add wave -noupdate /add_sub_8bit_tb/uut1/led_add
 add wave -noupdate /add_sub_8bit_tb/uut1/led_sub
-add wave -noupdate /add_sub_8bit_tb/uut1/seven_seg_out
+add wave -noupdate /add_sub_8bit_tb/uut1/seven_seg_ones
+add wave -noupdate /add_sub_8bit_tb/uut1/seven_seg_tens
+add wave -noupdate /add_sub_8bit_tb/uut1/seven_seg_hundreds
 add wave -noupdate /add_sub_8bit_tb/uut1/selo
 
 

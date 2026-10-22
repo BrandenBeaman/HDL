@@ -19,7 +19,9 @@ entity top is
 	  led_add       : out std_logic;
 	  led_sub       : out std_logic;
 	  
-	  seven_seg_out : out std_logic_vector(6 downto 0);
+	  seven_seg_ones : out std_logic_vector(6 downto 0);
+	  seven_seg_tens : out std_logic_vector(6 downto 0);
+	  seven_seg_hundreds : out std_logic_vector(6 downto 0);
 	  
 	  selo  : out std_logic_vector(1 downto 0)
 	  
@@ -177,7 +179,7 @@ u_seven_seg_ones: seven_seg
 	 clk => clk_50mhz,
 	 reset => reset,
 	 bcd => BCD_ones,
-	 seven_seg_out => seven_seg_out
+	 seven_seg_out => seven_seg_ones
 	 );
 	 
 u_seven_seg_tens: seven_seg
@@ -185,7 +187,7 @@ u_seven_seg_tens: seven_seg
 	 clk => clk_50mhz,
 	 reset => reset,
 	 bcd => BCD_tens,
-	 seven_seg_out => seven_seg_out
+	 seven_seg_out => seven_seg_tens
 	 );
 	 
 u_seven_seg_hundreds: seven_seg
@@ -193,7 +195,7 @@ u_seven_seg_hundreds: seven_seg
 	 clk => clk_50mhz,
 	 reset => reset,
 	 bcd => BCD_hundreds,
-	 seven_seg_out => seven_seg_out
+	 seven_seg_out => seven_seg_hundreds
 	 );
 	 
 process(sel)
