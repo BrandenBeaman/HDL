@@ -1,7 +1,7 @@
 
 -------------------------------------------------------------------------------
 -- Branden
---  add sub 8 bit test bench
+-- add sub 8 bit test bench
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -14,41 +14,36 @@ architecture arch of add_sub_8bit_tb is
 
 component top is
    port (
-	  clk_50mhz     : in std_logic;
-	  reset         : in std_logic;
-	  
-	  a             : in std_logic_vector(7 downto 0);
-	  b             : in std_logic_vector(7 downto 0);
-	  
-	  btn           : in std_logic;
-	  
-	  led_a         : out std_logic;
-	  led_b         : out std_logic;
-	  led_add       : out std_logic;
-	  led_sub       : out std_logic;
-	  
-	  seven_seg_ones : out std_logic_vector(6 downto 0);
-	  seven_seg_tens : out std_logic_vector(6 downto 0);
-	  seven_seg_hundreds : out std_logic_vector(6 downto 0);
-	  
-	  
-	  selo  : out std_logic_vector(1 downto 0)
-	  
-	 );
-	 
+      clk_50mhz     : in std_logic;
+      reset         : in std_logic;
+
+      switch        : in std_logic_vector(7 downto 0);
+
+      btn           : in std_logic;
+
+      led_a         : out std_logic;
+      led_b         : out std_logic;
+      led_add       : out std_logic;
+      led_sub       : out std_logic;
+
+      seven_seg_ones     : out std_logic_vector(6 downto 0);
+      seven_seg_tens     : out std_logic_vector(6 downto 0);
+      seven_seg_hundreds : out std_logic_vector(6 downto 0);
+
+      selo          : out std_logic_vector(1 downto 0)
+   );
 end component;
-                                             
+
 signal clk          : std_logic := '0';
-constant period     : time := 20ns;   
+constant period     : time := 20 ns;
 signal reset        : std_logic := '1';
 
-signal btn_sig          : std_logic;
+signal btn_sig      : std_logic := '0';
 
-signal a_sig : std_logic_vector(7 downto 0);
-signal b_sig : std_logic_vector(7 downto 0);
+signal switch_sig   : std_logic_vector(7 downto 0);
 
-signal seven_seg_ones_sig : std_logic_vector(6 downto 0);
-signal seven_seg_tens_sig : std_logic_vector(6 downto 0);
+signal seven_seg_ones_sig     : std_logic_vector(6 downto 0);
+signal seven_seg_tens_sig     : std_logic_vector(6 downto 0);
 signal seven_seg_hundreds_sig : std_logic_vector(6 downto 0);
 
 signal led_a        : std_logic;
@@ -58,80 +53,87 @@ signal led_sub      : std_logic;
 
 begin
 
--- clock process
+-- Clock process
 clock: process
-  begin
+begin
     clk <= not clk;
     wait for period/2;
-end process; 
- 
--- reset process
+end process;
+
+-- Reset process
 async_reset: process
-  begin
+begin
     wait for 2*period;
     reset <= '0';
     wait;
-end process; 
+end process;
 
--- Stimulus process
+-- Button stimulus process
 stimuli_btn: process
 begin
-
- loop 
-    btn_sig <= '1';
-    wait for 100 ns;
     btn_sig <= '0';
-	wait for 100 ns;
- end loop;
-	
+    wait for 200 ns;
+
+    loop
+        btn_sig <= '1';
+        wait for 100 ns;
+        btn_sig <= '0';
+        wait for 100 ns;
+    end loop;
 end process;
 
--- Stimulus process
+-- Switch stimulus process
 stimuli: process
 begin
+
     -- Test 1: A = 5, B = 2
-    a_sig <= "00000101";
-    b_sig <= "00000010";
-    wait for 750 ns;
+    -- SUM = 7, DIFF = 3
+    switch_sig <= "00000101";
+    wait for 320 ns;
+    switch_sig <= "00000010";
+    wait for 680 ns;
 
     -- Test 2: A = 2, B = 5
-    a_sig <= "00000010";
-    b_sig <= "00000101";
-    wait for 750 ns;
+    -- SUM = 7, DIFF = 509
+    switch_sig <= "00000010";
+    wait for 200 ns;
+    switch_sig <= "00000101";
+    wait for 600 ns;
 
     -- Test 3: A = 200, B = 100
-    a_sig <= "11001000";
-    b_sig <= "01100100";
-    wait for 750 ns;
+    -- SUM = 300, DIFF = 100
+    switch_sig <= "11001000";
+    wait for 200 ns;
+    switch_sig <= "01100100";
+    wait for 600 ns;
 
     -- Test 4: A = 100, B = 200
-    a_sig <= "01100100";
-    b_sig <= "11001000";
-    wait for 750 ns;
+    -- SUM = 300, DIFF = 412
+    switch_sig <= "01100100";
+    wait for 200 ns;
+    switch_sig <= "11001000";
 
     wait;
+
 end process;
 
-uut1: top  
+uut1: top
+port map(
+    clk_50mhz => clk,
+    reset     => reset,
 
-  port map(
-    clk_50mhz  => clk,
-    reset      => reset,
-	
-	btn => btn_sig,
-	a => a_sig,
-	b => b_sig,
-	
-	  seven_seg_ones => seven_seg_ones_sig,
-	  seven_seg_tens => seven_seg_tens_sig,
-	  seven_seg_hundreds => seven_seg_hundreds_sig,
-	  
-	
-    led_a      => open,
-    led_b      => open,
-    led_add    => open,
-    led_sub    => open,
-	selo  => open
-  );
+    switch    => switch_sig,
+    btn       => btn_sig,
+
+    seven_seg_ones     => seven_seg_ones_sig,
+    seven_seg_tens     => seven_seg_tens_sig,
+    seven_seg_hundreds => seven_seg_hundreds_sig,
+
+    led_a     => open,
+    led_b     => open,
+    led_add   => open,
+    led_sub   => open,
+    selo      => open
+);
 
 end arch;

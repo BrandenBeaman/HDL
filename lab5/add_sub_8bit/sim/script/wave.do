@@ -1,3 +1,4 @@
+
 onerror {resume}
 radix define States {
  "7'b1000000" "0" -color "red",
@@ -12,21 +13,35 @@ radix define States {
  "7'b0011000" "9" -color "red",
  -default default
 }
+
 quietly WaveActivateNextPane {} 0
+
 add wave -noupdate /add_sub_8bit_tb/uut1/clk_50mhz
 add wave -noupdate /add_sub_8bit_tb/uut1/reset
-add wave -noupdate /add_sub_8bit_tb/uut1/a
-add wave -noupdate /add_sub_8bit_tb/uut1/b
+
+add wave -noupdate -radix unsigned /add_sub_8bit_tb/uut1/switch
+add wave -noupdate -radix unsigned /add_sub_8bit_tb/uut1/switch_sync
+
 add wave -noupdate /add_sub_8bit_tb/uut1/btn
+add wave -noupdate /add_sub_8bit_tb/uut1/btn_en
+add wave -noupdate -radix binary /add_sub_8bit_tb/uut1/sel
+
+add wave -noupdate -radix unsigned /add_sub_8bit_tb/uut1/a_reg
+add wave -noupdate -radix unsigned /add_sub_8bit_tb/uut1/b_reg
+
+add wave -noupdate -radix unsigned /add_sub_8bit_tb/uut1/sum
+add wave -noupdate -radix unsigned /add_sub_8bit_tb/uut1/diff
+
 add wave -noupdate /add_sub_8bit_tb/uut1/led_a
 add wave -noupdate /add_sub_8bit_tb/uut1/led_b
 add wave -noupdate /add_sub_8bit_tb/uut1/led_add
 add wave -noupdate /add_sub_8bit_tb/uut1/led_sub
-add wave -noupdate /add_sub_8bit_tb/uut1/seven_seg_ones
-add wave -noupdate /add_sub_8bit_tb/uut1/seven_seg_tens
-add wave -noupdate /add_sub_8bit_tb/uut1/seven_seg_hundreds
-add wave -noupdate /add_sub_8bit_tb/uut1/selo
 
+add wave -noupdate -radix States /add_sub_8bit_tb/uut1/seven_seg_ones
+add wave -noupdate -radix States /add_sub_8bit_tb/uut1/seven_seg_tens
+add wave -noupdate -radix States /add_sub_8bit_tb/uut1/seven_seg_hundreds
+
+add wave -noupdate /add_sub_8bit_tb/uut1/selo
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {72 ns} 0}
@@ -40,10 +55,9 @@ configure wave -datasetprefix 0
 configure wave -rowmargin 4
 configure wave -childrowmargin 2
 configure wave -gridoffset 0
-configure wave -gridoffset 0
 configure wave -gridperiod 1
 configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {525 ns}
+WaveRestoreZoom {0 ns} {5000 ns}

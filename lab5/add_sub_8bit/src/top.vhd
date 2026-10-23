@@ -9,8 +9,7 @@ entity top is
 	  clk_50mhz     : in std_logic;
 	  reset         : in std_logic;
 	  
-	  a             : in std_logic_vector(7 downto 0);
-	  b             : in std_logic_vector(7 downto 0);
+	  switch             : in std_logic_vector(7 downto 0);
 	  
 	  btn           : in std_logic;
 	  
@@ -93,8 +92,10 @@ end component;
 signal btn_en  : std_logic;
 signal sel     : std_logic_vector(1 downto 0);
 
-signal a_sync  : std_logic_vector(7 downto 0);
-signal b_sync  : std_logic_vector(7 downto 0);
+signal switch_sync  : std_logic_vector(7 downto 0);
+
+signal a_reg : std_logic_vector(7 downto 0);
+signal b_reg : std_logic_vector(7 downto 0);
 
 signal sum     : std_logic_vector(8 downto 0);
 signal diff     : std_logic_vector(8 downto 0);
@@ -115,30 +116,21 @@ signal BCD_hundreds : std_logic_vector(3 downto 0);
  
 begin
 
-a_12bit <= "0000" & a_sync;
-b_12bit <= "0000" & b_sync;
+a_12bit <= "0000" & switch_sync;
+b_12bit <= "0000" & switch_sync;
 
 sum_12bit <= "000" & sum;
 diff_12bit <= "000" & diff;
 
 
 
-u_a_synchronizer_8bit: synchronizer_8bit
+u_switch_synchronizer_8bit: synchronizer_8bit
    port map (
       clk => clk_50mhz,
 	  reset => reset,
-	  async_in => a,
-	  sync_out => a_sync
+	  async_in => switch,
+	  sync_out => switch_sync
 	);
-	
-u_b_synchronizer_8bit: synchronizer_8bit
-   port map (
-      clk => clk_50mhz,
-	  reset => reset,
-	  async_in => b,
-	  sync_out => b_sync
-	);
-	
 
 u_btn_rising_edge_sync: rising_edge_synchronizer
      port map (
@@ -152,8 +144,8 @@ u_add_sub_8bit: add_sub_8bit
     port map (
 	 clk   => clk_50mhz,
 	 reset => reset,
-	 a     => a_sync,
-	 b     => b_sync,
+	 a     => a_reg,
+	 b     => b_reg,
 	 sum   => sum,
 	 diff  => diff
 	 );
@@ -197,6 +189,29 @@ u_seven_seg_hundreds: seven_seg
 	 bcd => BCD_hundreds,
 	 seven_seg_out => seven_seg_hundreds
 	 );
+	 
+-- Store A and B based on selected state
+input_registers: process(clk_50mhz, reset)
+begin
+    if reset = '1' then
+        a_reg <= (others => '0');
+        b_reg <= (others => '0');
+
+    elsif rising_edge(clk_50mhz) then
+        if btn_en = '1' then
+            case sel is
+                when "00" =>
+                    a_reg <= switch_sync;
+
+                when "01" =>
+                    b_reg <= switch_sync;
+
+                when others =>
+                    null;
+            end case;
+        end if;
+    end if;
+end process;
 	 
 process(sel, a_12bit, b_12bit, sum_12bit, diff_12bit)
  begin 
