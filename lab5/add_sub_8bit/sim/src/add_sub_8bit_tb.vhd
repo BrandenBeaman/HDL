@@ -68,7 +68,7 @@ end process;
 -- reset process
 async_reset: process
   begin
-    wait for 2 * period;
+    wait for 2*period;
     reset <= '0';
     wait;
 end process; 
@@ -92,22 +92,22 @@ begin
     -- Test 1: A = 5, B = 2
     a_sig <= "00000101";
     b_sig <= "00000010";
-    wait for 1 us;
+    wait for 750 ns;
 
     -- Test 2: A = 2, B = 5
     a_sig <= "00000010";
     b_sig <= "00000101";
-    wait for 1 us;
+    wait for 750 ns;
 
     -- Test 3: A = 200, B = 100
     a_sig <= "11001000";
     b_sig <= "01100100";
-    wait for 1 us;
+    wait for 750 ns;
 
     -- Test 4: A = 100, B = 200
     a_sig <= "01100100";
     b_sig <= "11001000";
-    wait for 1 us;
+    wait for 750 ns;
 
     wait;
 end process;

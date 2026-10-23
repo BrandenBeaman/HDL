@@ -198,7 +198,7 @@ u_seven_seg_hundreds: seven_seg
 	 seven_seg_out => seven_seg_hundreds
 	 );
 	 
-process(sel)
+process(sel, a_12bit, b_12bit, sum_12bit, diff_12bit)
  begin 
    case sel is 
      when "00" => 
